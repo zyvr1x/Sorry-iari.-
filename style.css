@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(170, 80, 130, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 80%, rgba(100, 70, 130, 0.15), transparent 30%),
+    #100c16;
+  color: #eee6ef;
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+/* subtle background flowers */
+
+body::before,
+body::after {
+  content: "✿";
+  position: fixed;
+  font-size: 150px;
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  top: -30px;
+  left: -40px;
+}
+
+body::after {
+  bottom: -30px;
+  right: -40px;
+}
+
+/* main container */
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 30px 22px;
+  position: relative;
+  z-index: 2;
+}
+
+/* pages */
+
+.page {
+  min-height: calc(100vh - 60px);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.page.active {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* typography */
+
+.flower {
+  font-size: 55px;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.small-text {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: clamp(38px, 11vw, 58px);
+  font-weight: normal;
+  line-height: 1.05;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+h2 {
+  font-size: clamp(29px, 8vw, 42px);
+  font-weight: normal;
+  line-height: 1.15;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.page-number {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  opacity: 0.35;
+  margin-bottom: 25px;
+}
+
+.page p {
+  max-width: 450px;
+  font-size: 17px;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  color: #ddd4df;
+}
+
+.highlight {
+  font-style: italic;
+  color: #e5b9d3 !important;
+}
+
+/* buttons */
+
+button {
+  margin-top: 25px;
+  padding: 14px 24px;
+  border: 1px solid rgba(230, 190, 215, 0.3);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #eadce8;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+button:hover {
+  background: rgba(220, 160, 200, 0.12);
+  border-color: rgba(230, 190, 215, 0.6);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* letter */
+
+.letter {
+  width: 100%;
+  padding: 25px 20px;
+  border-left: 1px solid rgba(230, 190, 215, 0.25);
+  border-right: 1px solid rgba(230, 190, 215, 0.25);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 12px;
+}
+
+.letter p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.letter p:last-child {
+  margin-bottom: 0;
+}
+
+/* final page */
+
+.final-flower {
+  font-size: 65px;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+.signature {
+  margin-top: 15px;
+  font-style: italic;
+  opacity: 0.55;
+}
+
+.hearts {
+  margin-top: 35px;
+  font-size: 22px;
+  opacity: 0.45;
+  letter-spacing: 5px;
+}
+
+/* small screens */
+
+@media (max-width: 380px) {
+  .container {
+    padding: 25px 17px;
+  }
+
+  .page p {
+    font-size: 15px;
+  }
+
+  .letter {
+    padding: 20px 15px;
+  }
+
+  .letter p {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 13px;
+  }
+  }
